@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/books', 'App\Http\Controllers\BookController@index');
+Route::get('/books/create', 'App\Http\Controllers\BookController@create')->name('books.create');
+Route::post('/books', 'App\Http\Controllers\BookController@store');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
